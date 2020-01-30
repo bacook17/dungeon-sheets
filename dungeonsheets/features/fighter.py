@@ -445,7 +445,7 @@ class SweepingAttack(Maneuver):
     name = "Sweeping Attack"
 
 
-class TripingAttack(Maneuver):
+class TripAttack(Maneuver):
     """When you hit a creature with a weapon attack, you can expend one
     superiority die to attempt to knock the target down. You add the
     superiority die to the attack’s damage roll, and if the target is Large or
@@ -453,7 +453,7 @@ class TripingAttack(Maneuver):
     the target prone
 
     """
-    name = "Triping Attack"
+    name = "Trip Attack"
 
 
 # Eldritch Knight

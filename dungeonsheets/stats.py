@@ -84,6 +84,10 @@ class Ability():
             is_proficient = (self.ability_name in character.saving_throw_proficiencies)
             if is_proficient:
                 saving_throw += character.proficiency_bonus
+        # Check if any magic items add to Saving Throw
+        for mitem in character.magic_items:
+            if hasattr(mitem, 'saving_throw_bonus'):
+                saving_throw += mitem.saving_throw_bonus
         # Create the named tuple
         value = AbilityScore(modifier=modifier, value=score, saving_throw=saving_throw)
         return value
@@ -117,7 +121,12 @@ class Skill():
             if self.ability_name.lower() in ('strength',
                                              'dexterity', 'constitution'):
                 modifier += ceil(character.proficienc_bonus / 2.)
-        
+        # Does a magic item improve this skill?
+        for item in character.magic_items:
+            if self.skill_name in item.other_bonuses:
+                modifier += item.other_bonuses[self.skill_name]
+            if hasattr(item, 'skill_check_bonus'):
+                modifier += item.skill_check_bonus
         # Check for expertise
         is_expert = self.skill_name in character.skill_expertise
         if is_expert:

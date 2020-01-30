@@ -354,6 +354,9 @@ class Character():
 
     def has_feature(self, feat):
         return any([isinstance(f, feat) for f in self.features])
+
+    def has_equipped(self, item):
+        return any([isinstance(i, item) for i in self.weapons + self.magic_items])
     
     @property
     def saving_throw_proficiencies(self):

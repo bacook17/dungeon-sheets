@@ -573,7 +573,7 @@ class FlameTongue(Greatsword):
 
 
 class SpearOfLightning(Spear):
-    name = "Spear +1"
+    name = "Spear of Lightning"
     damage_bonus = 1
     attack_bonus = 1
 
@@ -583,7 +583,13 @@ class MaulOfRetaliation(Maul):
     damage_bonus = 2
     attack_bonus = 2
 
+    
+class Tearulai(Greatsword):
+    name = "Tearulai"
+    damage_bonus = 3
+    attack_bonus = 3
 
+    
 # Some lists of weapons for easy proficiency resolution
 simple_melee_weapons = (Club, Dagger, Greatclub, Handaxe, Javelin,
                         LightHammer, Mace, Quarterstaff, Sickle, Spear)

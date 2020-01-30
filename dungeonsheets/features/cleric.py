@@ -35,7 +35,7 @@ class ChannelDivinity(Feature):
             return "Channel Divinity (3x/SR)"
         
 
-class TurnUndead(Feature):
+class TurnUndead(ChannelDivinity):
     """As an action, you present your holy symbol and speak a prayer censuring the
     undead. Each undead that can see or hear you within 30 feet of you must
     make a Wisdom saving throw. If the creature fails its saving throw, it is
@@ -126,17 +126,17 @@ class BlessingsOfKnowledge(Feature):
     source = "Cleric (Knowledge Domain)"
 
 
-class KnowledgeOfTheAncients(DivineIntervention):
+class KnowledgeOfTheAncients(ChannelDivinity):
     """Starting at 2nd level, you can use your Channel Divinity to tap into a
     divine well o f knowledge. As an action, you choose one skill or tool. For
     10 minutes, you have proficiency with the chosen skill or tool.
 
     """
-    name = "Divine Intervention: Knowledge of the Ancients"
+    name = "Channel Divinity: Knowledge of the Ancients"
     source = "Cleric (Knowledge Domain)"
 
 
-class ReadThoughts(DivineIntervention):
+class ReadThoughts(ChannelDivinity):
     """At 6th level, you can use your Channel Divinity to read a creature’s
     thoughts. You can then use your access to the creature’s mind to command
     it.  As an action, choose one creature that you can see within 60 feet of
@@ -153,7 +153,7 @@ class ReadThoughts(DivineIntervention):
     spell.
 
     """
-    name = "Divine Intervention: Read Thoughts"
+    name = "Channel Divinity: Read Thoughts"
     source = "Cleric (Knowledge Domain)"
 
 

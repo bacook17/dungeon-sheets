@@ -5,8 +5,11 @@ class MagicItem():
     """
     name = ''
     ac_bonus = 0
+    saving_throw_bonus = 0
+    skill_check_bonus = 0
     requires_attunement = False
     needs_implementation = False
+    other_bonuses = {}
     rarity = ''
 
     def __init__(self, owner=None):
@@ -234,3 +237,183 @@ class EagleWhistle(MagicItem):
     It regains expended uses daily at dawn.
     """
     name = "Eagle Whistle"
+
+
+class RingOfColdResistance(MagicItem):
+    """
+    You have Resistance to cold damage while wearing this ring.
+
+    """
+    name = "Ring of Cold Protection"
+    requires_attunement = True
+
+
+class RobeOfStars(MagicItem):
+    """This black or dark blue robe is embroidered with small white or silver
+    stars. You gain a +1 bonus to Saving Throws while you wear it.
+
+    Six stars, located on the robe's upper front portion, are particularly
+    large. While wearing this robe, you can use an action to pull off one of
+    the stars and use it to cast Magic Missile as a 5th-level spell. Daily at
+    dusk, 1d6 removed stars reappear on the robe.
+
+    While you wear the robe, you can use an action to enter the Astral Plane
+    along with everything you are wearing and carrying. You remain there until
+    you use an action to return to the plane you were on. You reappear in the
+    last space you occupied, or if that space is occupied, the nearest
+    unoccupied space.
+
+    """
+    name = "Robe of Stars"
+    requires_attunement = True
+    saving_throw_bonus = 1
+
+
+class MedalionOfThoughts(MagicItem):
+    """
+    The medallion has 3 Charges. While wearing it, you can use an action and
+    expend 1 charge to cast the Detect Thoughts spell (save DC 13) from it. The
+    medallion regains 1d3 expended Charges daily at dawn.
+
+    """
+    name = "Medalion of Thoughts"
+
+    
+class SlippersOfSpiderClimbing(MagicItem):
+    """
+    While you wear these light shoes, you can move up, down, and across
+    vertical surfaces and upside down along ceilings, while leaving your hands
+    free. You have a climbing speed equal to your walking speed. However, the
+    slippers don't allow you to move this way on a slippery surface, such as
+    one covered by ice or oil.
+
+    """
+    name = "Slippers of Spider Climbing"
+
+
+class OilOfSharpness(MagicItem):
+    """This clear, gelatinous oil sparkles with tiny, ultrathin silver shards. The
+    oil can coat one slashing or piercing weapon or up to 5 pieces of slashing
+    or piercing Ammunition. Applying the oil takes 1 minute. For 1 hour, the
+    coated item is magical and has a +3 bonus to Attack and Damage Rolls.
+    """
+    name = "Oil of Sharpness"
+    
+    
+class BracersOfDefense(MagicItem):
+    """
+
+
+    """
+    name = "Bracers of Defense"
+    ac_bonus = 2
+    rarity = "Rare"
+
+
+class OrbOfTime(MagicItem):
+    """While holding this orb, you can use an action to determine whether it is
+    morning, afternoon, evening, or nighttime outside. This property functions
+    only on the Material Plane.
+
+    """
+    name = "Orb of Time"
+
+
+class GlovesOfThievery(MagicItem):
+    """These gloves are invisible while worn. While wearing them, you gain a +5
+    bonus to Dexterity (Sleight of Hand checks and Dexterity checks made to
+    pick locks.
+
+    """
+    name = "Gloves of Thievery"
+    other_bonuses = {'sleight of hand': 5, }
+
+
+class BootsOfTheWinterlands(MagicItem):
+    """These furred boots are snug and feel quite warm. While you wear them, you
+    gain the following benefits:
+
+    - You have Resistance to cold damage.
+
+    - You ignore difficult terrain created by ice or snow.
+
+    - You can tolerate temperatures as low as -50 degrees Fahrenheit without
+      any additional Protection. If you wear heavy clothes, you can tolerate
+      temperatures as low as -100 degrees Fahrenheit.
+
+    """
+    name = "Boots of the Winterlands"
+    requires_attunement = True
+
+
+class BagOfRustColoredTricks(MagicItem):
+    """This ordinary bag, made from gray, rust, or tan cloth, appears
+    empty. Reaching inside the bag, however, reveals the presence of a small,
+    fuzzy object. The bag weighs 1/2 pound.  You can use an action to pull the
+    fuzzy object from the bag and throw it up to 20 feet. When the object
+    lands, it transforms into a creature you determine by rolling a d8 and
+    consulting the table that corresponds to the bag's color. The creature
+    vanishes at the next dawn or when it is reduced to 0 Hit Points.  The
+    creature is friendly to you and your companions, and it acts on Your
+    Turn. You can use a Bonus Action to Command how the creature moves and what
+    action it takes on its next turn, or to give it general orders, such as to
+    Attack your enemies. In the absence of such orders, the creature acts in a
+    fashion appropriate to its Nature.  Once three fuzzy Objects have been
+    pulled from the bag, the bag can't be used again until the next dawn.
+
+    Rust Colored:
+    
+    1 - Rat
+    
+    2 - Owl
+
+    3 - Mastiff
+
+    4 - Goat
+
+    5 - Giant Goat
+
+    6 - Giant Boar
+
+    7 - Lion
+
+    8 - Brown Bear
+    """
+    name = "Bag of Tricks"
+
+
+class BagOfHolding(MagicItem):
+    """This bag has an interior space considerably larger than its outside
+    dimensions, roughly 2 feet in diameter at the mouth and 4 feet deep. The
+    bag can hold up to 500 pounds, not exceeding a volume of 64 cubic feet. The
+    bag weighs 15 pounds, regardless of its contents. Retrieving an item from
+    the bag requires an action.
+
+    If the bag is overloaded, pierced, or torn, it ruptures and is destroyed,
+    and its contents are scattered in the Astral Plane. If the bag is turned
+    inside out, its contents spill forth, unharmed, but the bag must be put
+    right before it can be used again. Breathing creatures inside the bag can
+    survive up to a number of minutes equal to 10 divided by the number of
+    creatures (minimum 1 minute), after which time they begin to suffocate.
+
+    Placing a bag of holding inside an extradimensional space created by a
+    Handy Haversack, Portable Hole, or similar item instantly destroys both
+    items and opens a gate to the Astral Plane. The gate originates where the
+    one item was placed inside the other. Any creature within 10 feet of the
+    gate is sucked through it to a random location on the Astral Plane. The
+    gate then closes. The gate is one-way only and can't be reopened.
+
+    """
+    name = "Bag of Holding"
+
+
+class StoneOfGoodLuck(MagicItem):
+    """While this polished agate is on your person, you gain a +1 bonus to Ability
+    Checks and Saving Throws.
+
+    """
+    name = "Stone of Good Luck"
+    saving_throw_bonus = 1
+    skill_check_bonus = 1
+
+
